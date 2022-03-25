@@ -1,0 +1,11 @@
+:root {
+    --custom_color: #B91450;
+}
+
+.bg_custom {
+    background-color: var(--custom_color);
+}
+
+.font_color_custom {
+    color: var(--custom_color);
+}
