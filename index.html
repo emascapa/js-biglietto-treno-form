@@ -22,21 +22,21 @@
                     Nome completo
                 </h5>
                 <!-- <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp"> -->
-                <input class="form-control" id="">
+                <input class="form-control" id="name_form">
             </div>
             <div class="col d-flex flex-column align-items-center px-4">
                 <h5 class="font_color_custom py-1">
                     Km da percorrere
                 </h5>
                 <!-- <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp"> -->
-                <input class="form-control" id="">
+                <input class="form-control" id="km_form">
             </div>
             <div class="col d-flex flex-column align-items-center px-4">
                 <h5 class="font_color_custom py-1">
                     Fascia di età
                 </h5>
                 <!-- <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp"> -->
-                <select class="form-select" aria-label="Default select example">
+                <select class="form-select" aria-label="Default select example" id="age_form">
                     <option selected>Seleziona età</option>
                     <option value="young">Young (fino a 18 anni)</option>
                     <option value="standard">Standard</option>
@@ -44,7 +44,7 @@
                   </select>
             </div>
         </div>
-        <div class="row text-center py-4">
+        <div class="row text-center py-2">
 
             <div class="col">
                 <button type="button" class="btn btn-outline-secondary me-2" id="ticket_generator">
@@ -58,10 +58,44 @@
 
     </div>
 
-    <div class="ticket_div">
-        <h2 class="text-uppercase text-white text-center py-4">il tuo biglietto</h2>
+    <div class="ticket_div mt-3">
+        <h2 class="text-uppercase text-white text-center py-3">il tuo biglietto</h2>
 
         <div class="container p-4 rounded rounded-4 bg-white">
+            <h5 class="text-uppercase">dettaglio passeggeri</h5>
+            <div class="row border">
+                <div class="col-4 p-3 bg-secondary">
+                    <h5 class="text-uppercase">nome passeggero</h5>
+                    <span id="customer_name">
+
+                    </span>
+                </div>
+                <div class="col p-3">
+                    <h5 class="">Offerta</h5>
+                    <span id="discount_offer">
+
+                    </span>
+                </div>
+                <div class="col p-3">
+                    <h5 class="">Carrozza</h5>
+                    <span id="vagon">
+
+                    </span>
+                </div>
+                <div class="col p-3">
+                    <h5 class="">Codice CP</h5>
+                    <span id="id_train">
+
+                    </span>
+                </div>
+                <div class="col p-3">
+                    <h5 class="">Costo biglietto</h5>
+                    <span id="ticket_price">
+
+                    </span>
+                </div>
+
+            </div>
 
         </div>
 

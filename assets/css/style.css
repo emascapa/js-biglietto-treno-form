@@ -9,3 +9,7 @@
 .font_color_custom {
     color: var(--custom_color);
 }
+
+/* .ticket_div {
+    display: none;
+} */
