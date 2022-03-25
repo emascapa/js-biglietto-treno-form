@@ -66,7 +66,10 @@ buttonTicketGenerator.addEventListener('click', function() {
 
     //vado a inserire i valori nella finestra generata
     nameSpan.innerHTML = customerName;
-    discountSpan.innerHTML =
+    discountSpan.innerHTML = discount;
+    vagonSpan.innerHTML = randomVagonNumber;
+    idTrainSpan.innerHTML = randomTrainNumber;
+    priceSpan.innerHTML = `${ticketPrice} €`
 
 
 })
