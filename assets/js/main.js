@@ -2,8 +2,9 @@
 const priceTicketKm = 0.21;
 
 
-//assegno al bottone 'genera' del form una variabile
+//assegno al bottone 'genera' e 'annulla' del form una variabile
 const buttonTicketGenerator = document.getElementById('ticket_generator');
+const buttonTicketEraser = document.getElementById('ticket_eraser');
 
 
 //salvo in una variabiole il form a tendina dell'età
@@ -21,14 +22,15 @@ const ticketWindow = document.getElementById('ticket_window');
 
 
 
-//al click del bottone 'genera' salvo i valori inseriti nei form in variabili
+//al click del bottone 'genera' succederano un po' di cose eheh
 buttonTicketGenerator.addEventListener('click', function() {
+    //salvo i valori inseriti nei form in variabili
     //aggiungo nome
     const customerName = document.getElementById('name_form').value;
     //aggiungo km
     const kmTrip = document.getElementById('km_form').value;
     //aggiungo opzione scelta età
-    const ageChoice = ageForm.options[ageForm.selectedIndex].index
+    const ageChoice = ageForm.options[ageForm.selectedIndex].index;
 
     //stampo in console
     console.log('hai cliccato');
@@ -44,12 +46,12 @@ buttonTicketGenerator.addEventListener('click', function() {
     let discount;
     if (ageChoice === 1) {
         ticketPrice = ticketPrice * 0.8;
-        discount = 'Offerta Young'
+        discount = 'Offerta Young';
     } else if (ageChoice === 3) {
         ticketPrice = ticketPrice * 0.6;
-        discount = 'Offerta Senior'
+        discount = 'Offerta Senior';
     } else {
-        discount = 'Tariffa Standard'
+        discount = 'Tariffa Standard';
     }
 
     //arrotondo il risultato alle prime due cifre decimali
@@ -71,34 +73,14 @@ buttonTicketGenerator.addEventListener('click', function() {
     discountSpan.innerHTML = discount;
     vagonSpan.innerHTML = randomVagonNumber;
     idTrainSpan.innerHTML = randomTrainNumber;
-    priceSpan.innerHTML = `${ticketPrice} €`
+    priceSpan.innerHTML = `${ticketPrice} €`;
 
 
     //rendo la finestra del biglietto visibile
     ticketWindow.classList.add('d-block');
-})
+});
 
-
-/* 
-//calcolo prezzo biglietto standard
-let ticket_price = kmTrip * 0.21;
-
-//salvo in una variabile il prezzo non scontato
-let basic_price = ticket_price.toFixed(2);
-
-
-//applico eventuale sconto
-let discount;
-if (user_age <= 18) {
-    ticket_price = ticket_price * 0.8;
-    discount = '20%'
-} else if (user_age >= 65) {
-    ticket_price = ticket_price * 0.6;
-    discount = '40%'
-} else {
-    discount = 'Nessuno sconto disponibile'
-}
-
-
-//arrotondo alle prime due cifre decimali
-ticket_price = ticket_price.toFixed(2); */
+buttonTicketEraser.addEventListener('click', function() {
+    //nascondo la finestra del biglietto 
+    ticketWindow.classList.remove('d-block');
+});
