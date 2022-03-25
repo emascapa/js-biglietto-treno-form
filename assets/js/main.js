@@ -44,10 +44,10 @@ buttonTicketGenerator.addEventListener('click', function() {
 
     //applico eventuale sconto
     let discount;
-    if (ageChoice === 1) {
+    if (ageChoice === 0) {
         ticketPrice = ticketPrice * 0.8;
         discount = 'Offerta Young';
-    } else if (ageChoice === 3) {
+    } else if (ageChoice === 2) {
         ticketPrice = ticketPrice * 0.6;
         discount = 'Offerta Senior';
     } else {
@@ -81,6 +81,13 @@ buttonTicketGenerator.addEventListener('click', function() {
 });
 
 buttonTicketEraser.addEventListener('click', function() {
+    //cancello i valori nella finestra generata
+    nameSpan.innerHTML = '';
+    discountSpan.innerHTML = '';
+    vagonSpan.innerHTML = '';
+    idTrainSpan.innerHTML = '';
+    priceSpan.innerHTML = '';
+
     //nascondo la finestra del biglietto 
     ticketWindow.classList.remove('d-block');
 });
