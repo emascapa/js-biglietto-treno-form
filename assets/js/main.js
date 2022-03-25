@@ -32,52 +32,64 @@ buttonTicketGenerator.addEventListener('click', function() {
     //aggiungo opzione scelta età
     const ageChoice = ageForm.options[ageForm.selectedIndex].index;
 
-    //stampo in console
-    console.log('hai cliccato');
-    console.log(`Nome: ${customerName}`);
-    console.log(`KM: ${kmTrip}`);
-    console.log(`opzione età: ${ageChoice}`);
 
-    //calcolo prezzo biglietto standard
-    let ticketPrice = kmTrip * priceTicketKm;
-    console.log(`prezzo iniziale: ${ticketPrice}`);
-
-    //applico eventuale sconto
-    let discount;
-    if (ageChoice === 0) {
-        ticketPrice = ticketPrice * 0.8;
-        discount = 'Offerta Young';
-    } else if (ageChoice === 2) {
-        ticketPrice = ticketPrice * 0.6;
-        discount = 'Offerta Senior';
+    //il resto del codice viene eseguito se i valori inseriti nel form non sono nulli
+    if (customerName === '' && kmTrip == '') {
+        alert('Inserisci Nome passeggero e numero di chilometri da effettuare');
+    } else if (customerName === '') {
+        alert('Inserisci Nome passeggero');
+    } else if (kmTrip == '') {
+        alert('Inserisci numero di chilometri da effettuare');
     } else {
-        discount = 'Tariffa Standard';
+        
+        //stampo in console
+        console.log('hai cliccato');
+        console.log(`Nome: ${customerName}`);
+        console.log(`KM: ${kmTrip}`);
+        console.log(`opzione età: ${ageChoice}`);
+
+        //calcolo prezzo biglietto standard
+        let ticketPrice = kmTrip * priceTicketKm;
+        console.log(`prezzo iniziale: ${ticketPrice}`);
+
+        //applico eventuale sconto
+        let discount;
+        if (ageChoice === 0) {
+            ticketPrice = ticketPrice * 0.8;
+            discount = 'Offerta Young';
+        } else if (ageChoice === 2) {
+            ticketPrice = ticketPrice * 0.6;
+            discount = 'Offerta Senior';
+        } else {
+            discount = 'Tariffa Standard';
+        }
+
+        //arrotondo il risultato alle prime due cifre decimali
+        ticketPrice = ticketPrice.toFixed(2);
+        console.log(`prezzo finale: ${ticketPrice}`);
+
+        //creo numero carrozza casuale
+        const randomVagonNumber = Math.floor((Math.random() * 10) + 1);
+        console.log(`numero carrozza: ${randomVagonNumber}`);
+
+        //creo numero treno casuale
+        const randomTrainNumber = Math.floor(Math.random() * 100000);
+        console.log(`numero treno: ${randomTrainNumber}`);
+
+
+
+        //vado a inserire i valori nella finestra generata
+        nameSpan.innerHTML = customerName;
+        discountSpan.innerHTML = discount;
+        vagonSpan.innerHTML = randomVagonNumber;
+        idTrainSpan.innerHTML = randomTrainNumber;
+        priceSpan.innerHTML = `${ticketPrice} €`;
+
+
+        //rendo la finestra del biglietto visibile
+        ticketWindow.classList.add('d-block');
     }
 
-    //arrotondo il risultato alle prime due cifre decimali
-    ticketPrice = ticketPrice.toFixed(2);
-    console.log(`prezzo finale: ${ticketPrice}`);
-
-    //creo numero carrozza casuale
-    const randomVagonNumber = Math.floor((Math.random() * 10) + 1);
-    console.log(`numero carrozza: ${randomVagonNumber}`);
-
-    //creo numero treno casuale
-    const randomTrainNumber = Math.floor(Math.random() * 100000);
-    console.log(`numero treno: ${randomTrainNumber}`);
-
-    
-
-    //vado a inserire i valori nella finestra generata
-    nameSpan.innerHTML = customerName;
-    discountSpan.innerHTML = discount;
-    vagonSpan.innerHTML = randomVagonNumber;
-    idTrainSpan.innerHTML = randomTrainNumber;
-    priceSpan.innerHTML = `${ticketPrice} €`;
-
-
-    //rendo la finestra del biglietto visibile
-    ticketWindow.classList.add('d-block');
 });
 
 buttonTicketEraser.addEventListener('click', function() {
