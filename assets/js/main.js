@@ -17,6 +17,8 @@ const vagonSpan = document.getElementById('vagon');
 const idTrainSpan = document.getElementById('id_train');
 const priceSpan = document.getElementById('ticket_price');
 
+const ticketWindow = document.getElementById('ticket_window');
+
 
 
 //al click del bottone 'genera' salvo i valori inseriti nei form in variabili
@@ -72,6 +74,8 @@ buttonTicketGenerator.addEventListener('click', function() {
     priceSpan.innerHTML = `${ticketPrice} €`
 
 
+    //rendo la finestra del biglietto visibile
+    ticketWindow.classList.add('d-block');
 })
 
 
